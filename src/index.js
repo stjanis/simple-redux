@@ -1,5 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from '.store/configureStore';
+import ItemList from './components/ItemList';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+render(
+  <Provider store={store}>
+    <ItemList />
+  </Provider>, 
+  document.getElementById('app')
+);
