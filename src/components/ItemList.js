@@ -10,6 +10,10 @@ class ItemList extends Component {
     };
   }
 
+  componentDidMount() {
+    this.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
+  }
+
   fetchData(url) {
     this.setState({ isLoading: true });
 
@@ -26,10 +30,6 @@ class ItemList extends Component {
         .then(response => response.json())
         .then(items => this.setState({ items }))
         .catch(() => this.setState({ hasErrored: true }));
-  }
-
-  componentDidMount() {
-    this.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
   }
 
   render() {
